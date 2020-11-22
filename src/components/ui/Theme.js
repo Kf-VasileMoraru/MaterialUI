@@ -20,6 +20,19 @@ export default createMuiTheme({
         },
     },
     typography:{
-        h3:{}
+        h3:{},
+        tab:{
+            fontFamily:'Raleway',
+            fontWeight:'700',
+            fontSize:'1rem',
+            textTransform:'none'
+        },
+        estimate:{
+            fontFamily:'Pacifico',
+            textTransform:'none',
+            fontSize:'1rem',
+            color:'white'
+        }
+
     }
 });
