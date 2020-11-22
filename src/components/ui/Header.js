@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import {makeStyles} from '@material-ui/core/styles';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
 import logo from '../../assets/logo.svg';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -9,6 +9,11 @@ import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import {useMediaQuery} from '@material-ui/core';
+
+
+
+
 
 // https://material-ui.com/components/menus/
 // https://material-ui.com/components/buttons/#text-buttons
@@ -20,10 +25,16 @@ import MenuItem from '@material-ui/core/MenuItem';
 const useStyles = makeStyles(theme => ({
     toolbarMargin: {
         ...theme.mixins.toolbar,
-        marginBottom: '2em'
+        marginBottom: '3em',
+        [theme.breakpoints.down('md')]:{
+            marginBottom:'0em'
+        }
     },
     logo: {
-        height: '6em'
+        height: '8em',
+        [theme.breakpoints.down('md')]:{
+            height:'5em'
+        }
     },
     tabContainer: {
         marginLeft: 'auto'
@@ -64,6 +75,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function Header(props) {
     const classes = useStyles();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down('md'));
     const [value, setValue] = useState(0);
     const [anchorEl, setAnchorEl] = useState(null);
     const [open, setOpen] = useState(false);
@@ -107,7 +120,22 @@ export default function Header(props) {
         }
     }, []);
 
-
+    const tabs = (
+        <>
+            <Tabs value={value} onChange={handleCchange} className={classes.tabContainer}
+                indicatorColor={'secondary'}>
+                <Tab component={Link} to='/' className={classes.tab} label='Home'></Tab>
+                <Tab component={Link} to='/services' className={classes.tab} label='Service'
+                    aria-owns={anchorEl ? 'simple-menu' : undefined}
+                    aria-haspopup={anchorEl ? 'true' : undefined}
+                    // onClick={e=>handleClick(e)}
+                    onMouseOver={e => handleClick(e)}/>
+                <Tab component={Link} to='/revolution' className={classes.tab} label='The Revolution'></Tab>
+                <Tab component={Link} to='/about' className={classes.tab} label='About Us'></Tab>
+                <Tab component={Link} to='/contact' className={classes.tab} label='Contact Us'></Tab>
+            </Tabs>
+        </>
+    );
     return (
         <>
             <AppBar position='fixed' color='primary'>
@@ -119,19 +147,7 @@ export default function Header(props) {
 
                         <img src={logo} className={classes.logo} alt="logo"/>
                     </Button>
-
-                    <Tabs value={value} onChange={handleCchange} className={classes.tabContainer}
-                        indicatorColor={'secondary'}>
-                        <Tab component={Link} to='/' className={classes.tab} label='Home'></Tab>
-                        <Tab component={Link} to='/services' className={classes.tab} label='Service'
-                            aria-owns={anchorEl ? 'simple-menu' : undefined}
-                            aria-haspopup={anchorEl ? 'true' : undefined}
-                            // onClick={e=>handleClick(e)}
-                            onMouseOver={e => handleClick(e)}/>
-                        <Tab component={Link} to='/revolution' className={classes.tab} label='The Revolution'></Tab>
-                        <Tab component={Link} to='/about' className={classes.tab} label='About Us'></Tab>
-                        <Tab component={Link} to='/contact' className={classes.tab} label='Contact Us'></Tab>
-                    </Tabs>
+                    {matches ? null : tabs}
                     <Button variant='contained' color={'secondary'} className={classes.button}>Free Estimate</Button>
                     <Menu id={'simple-menu'} anchorEl={anchorEl} open={open} onClose={handleClose}
                         MenuListProps={{onMouseLeave: handleClose}} classes={{paper: classes.menu}}
@@ -149,8 +165,6 @@ export default function Header(props) {
                                 selected={i === selectedIndex && value === 1}
                             > {option.name} </MenuItem>
                         ))}
-
-
                     </Menu>
                 </Toolbar>
             </AppBar>
