@@ -66,7 +66,7 @@ export default function Footer(props) {
     return (
         <footer className={classes.footer}>
             <Hidden mdDown>
-                <Grid container justify='center' spacing={2} className={classes.mainContainer}>
+                <Grid container justify='center' className={classes.mainContainer}>
                     <Grid item className={classes.gridItem}>
                         <Grid container direction={'column'}>
                             <Grid item component={Link} to='/' className={classes.link} onClick={() => {
