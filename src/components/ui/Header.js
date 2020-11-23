@@ -77,7 +77,8 @@ export default function Header(props) {
     const classes = useStyles();
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down('md'));
-    const [value, setValue] = useState(0);
+    // eslint-disable-next-line react/prop-types
+    const {value,setValue}  = props;
     const [anchorEl, setAnchorEl] = useState(null);
     const [open, setOpen] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(0);

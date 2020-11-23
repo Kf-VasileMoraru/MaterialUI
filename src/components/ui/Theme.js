@@ -10,7 +10,7 @@ export default createMuiTheme({
     palette: {
         common: {
             arcBlue: `${arcBlue}`,
-            arcOrange:  `${arcOrange}`
+            arcOrange: `${arcOrange}`
         },
         primary:{
             main: `${arcBlue}`
@@ -20,7 +20,14 @@ export default createMuiTheme({
         },
     },
     typography:{
-        h3:{},
+        h2:{
+            fontFamily:'Raleway',
+            fontWeight:'700',
+            fontSize:'2.5rem',
+            color:`${arcBlue}`,
+            lineHeight: 1.5
+
+        },
         tab:{
             fontFamily:'Raleway',
             fontWeight:'700',
