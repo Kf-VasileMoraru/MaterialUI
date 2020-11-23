@@ -1,9 +1,10 @@
 import React from 'react';
 import {makeStyles, useTheme} from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core';
-import ButtonArrow from './ui/ButtonArrow';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import ButtonArrow from './ui/ButtonArrow';
+import customSoft from '../assets/Custom Software Icon.svg';
 
 
 const useStyles = makeStyles(theme => ({
@@ -43,7 +44,7 @@ export default function LandingPage() {
     return (
         <Grid container direction={'column'}>
             <Grid item>{/*--------------1----------------*/}
-                <Grid container justify={'center'} alignItems={'center'} spacing={4}>
+                <Grid container justify={'center'} alignItems={'center'} >
                     <Grid item sm>
                         <Typography align='center' variant={'h2'}>Bring wet coast technology <br/> to the
                             MidWest</Typography>
@@ -76,8 +77,15 @@ export default function LandingPage() {
                         <Typography variant='subtitle1'>
                             Cstom software development, ustom software development
                         </Typography>
+                        <Button variant='outlined' className={classes.learnButton}>
+                            <span style={{marginRight: 5}}>Learn More</span>
+                            <ButtonArrow width={15} height={15} fill={theme.palette.common.arcBlue}/>
+                        </Button>
                     </Grid>
                 </Grid>
+            </Grid>
+            <Grid item>
+                <img src={customSoft} alt="photo"/>
             </Grid>
         </Grid>
     );

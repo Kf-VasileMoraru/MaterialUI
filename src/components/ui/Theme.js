@@ -12,33 +12,33 @@ export default createMuiTheme({
             arcBlue: `${arcBlue}`,
             arcOrange: `${arcOrange}`
         },
-        primary:{
+        primary: {
             main: `${arcBlue}`
         },
         secondary: {
             main: `${arcOrange}`
         },
     },
-    typography:{
-        h2:{
-            fontFamily:'Raleway',
-            fontWeight:'700',
-            fontSize:'2.5rem',
-            color:`${arcBlue}`,
+    typography: {
+        h2: {
+            fontFamily: 'Raleway',
+            fontWeight: '700',
+            fontSize: '2.5rem',
+            color: `${arcBlue}`,
             lineHeight: 1.5
 
         },
-        tab:{
-            fontFamily:'Raleway',
-            fontWeight:'700',
-            fontSize:'1rem',
-            textTransform:'none'
+        tab: {
+            fontFamily: 'Raleway',
+            fontWeight: '700',
+            fontSize: '1rem',
+            textTransform: 'none'
         },
-        estimate:{
-            fontFamily:'Pacifico',
-            textTransform:'none',
-            fontSize:'1rem',
-            color:'white'
+        estimate: {
+            fontFamily: 'Pacifico',
+            textTransform: 'none',
+            fontSize: '1rem',
+            color: 'white'
         }
 
     }
