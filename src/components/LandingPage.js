@@ -108,7 +108,7 @@ export default function LandingPage() {
                             <ButtonArrow width={15} height={15} fill={theme.palette.common.arcBlue}/>
                         </Button>
                     </Grid>
-                    <Grid item className={classes.icon} style={{marginRight: machesSM ? 0 : '5em'}}>
+                    <Grid item className={classes.icon} style={{marginRight: machesSM ? 0 : '9em'}}>
                         <img src={mobileApp} alt="photo"/>
                     </Grid>
                 </Grid>
