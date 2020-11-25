@@ -10,7 +10,6 @@ import {Link} from 'react-router-dom';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import {useMediaQuery} from '@material-ui/core';
-import Box from '@material-ui/core/Box';
 
 
 // https://material-ui.com/components/menus/
@@ -137,39 +136,38 @@ export default function Header(props) {
     );
     return (
         <>
-            <Box mx="auto">
-                <AppBar position='fixed' color='primary' style={{maxWidth: 1300, }}  >
-                    <Toolbar disableGutters>
-                        {/*<Typography variant='h5' color='secondary'> Ceva development </Typography>*/}
+            <AppBar position='fixed' color='primary' style={{maxWidth: 1300, right:'auto' }}>
+                <Toolbar disableGutters>
+                    {/*<Typography variant='h5' color='secondary'> Ceva development </Typography>*/}
 
-                        <Button component={Link} to='/' className={classes.logoContainer} onClick={() => setValue(0)}
-                            disableRipple>
+                    <Button component={Link} to='/' className={classes.logoContainer} onClick={() => setValue(0)}
+                        disableRipple>
 
-                            <img src={logo} className={classes.logo} alt="logo"/>
-                        </Button>
-                        {matches ? null : tabs}
-                        <Button variant='contained' color={'secondary'} className={classes.button}>Free
-                            Estimate</Button>
-                        <Menu id={'simple-menu'} anchorEl={anchorEl} open={open} onClose={handleClose}
-                            MenuListProps={{onMouseLeave: handleClose}} classes={{paper: classes.menu}}
-                            elevation={0}>
-                            {menuOptions.map((option, i) => (
-                                <MenuItem
-                                    key={option}
-                                    component={Link} to={option.link}
-                                    classes={{root: classes.menuItem}}
-                                    onClick={(event) => {
-                                        handleClose();
-                                        setValue(1);
-                                        handleMenuClick(event, i);
-                                    }}
-                                    selected={i === selectedIndex && value === 1}
-                                > {option.name} </MenuItem>
-                            ))}
-                        </Menu>
-                    </Toolbar>
-                </AppBar>
-            </Box>
+                        <img src={logo} className={classes.logo} alt="logo"/>
+                    </Button>
+                    {matches ? null : tabs}
+                    <Button variant='contained' color={'secondary'} className={classes.button}>Free
+                        Estimate</Button>
+                    <Menu id={'simple-menu'} anchorEl={anchorEl} open={open} onClose={handleClose}
+                        MenuListProps={{onMouseLeave: handleClose}} classes={{paper: classes.menu}}
+                        elevation={0}>
+                        {menuOptions.map((option, i) => (
+                            <MenuItem
+                                key={option}
+                                component={Link} to={option.link}
+                                classes={{root: classes.menuItem}}
+                                onClick={(event) => {
+                                    handleClose();
+                                    setValue(1);
+                                    handleMenuClick(event, i);
+                                }}
+                                selected={i === selectedIndex && value === 1}
+                            > {option.name} </MenuItem>
+                        ))}
+                    </Menu>
+                </Toolbar>
+            </AppBar>
+
             <div className={classes.toolbarMargin}/>
 
         </>
