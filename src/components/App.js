@@ -7,6 +7,7 @@ import Header from './ui/Header';
 import theme from './ui/Theme';
 import Footer from './ui/Footer';
 import LandingPage from './LandingPage';
+import Contact from './Contact';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
                     <Route exact path='/web' component={() => <div>web</div>}/>
                     <Route exact path='/revolution' component={() => <div>revolutin</div>}/>
                     <Route exact path='/about' component={() => <div>about</div>}/>
-                    <Route exact path='/contact' component={() => <div>contact</div>}/>
+                    <Route exact path='/contact' component={Contact}/>
                     <Route exact path='/estimate ' component={() => <div>estimate</div>}/>
                 </Switch>
                 <Footer value={value} setValue={setValue}/>
