@@ -26,7 +26,6 @@ export default createMuiTheme({
             fontSize: '2.5rem',
             color: `${arcBlue}`,
             lineHeight: 1.5
-
         },
         tab: {
             fontFamily: 'Raleway',
@@ -40,6 +39,23 @@ export default createMuiTheme({
             fontSize: '1rem',
             color: 'white'
         }
-
+    },
+    overrides: {
+        MuiInputLabel: {
+            root: {
+                color: arcBlue,
+                fontSize: '1rem'
+            }
+        },
+        MuiInput: {
+            underline: {
+                '&:before': {
+                    borderBottom: `2px solid ${arcBlue}`
+                },
+                '&:hover:not($disabled):not($focused):not($error):before': {
+                    borderBottom: `2px solid ${arcBlue}`
+                }
+            }
+        }
     }
 });

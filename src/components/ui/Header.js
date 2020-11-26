@@ -136,7 +136,7 @@ export default function Header(props) {
     );
     return (
         <>
-            <AppBar position='fixed' color='primary' style={{maxWidth: 1300, right:'auto' }}>
+            <AppBar position='fixed' color='primary' style={{maxWidth: 1300, right: 'auto'}}>
                 <Toolbar disableGutters>
                     {/*<Typography variant='h5' color='secondary'> Ceva development </Typography>*/}
 
@@ -167,7 +167,6 @@ export default function Header(props) {
                     </Menu>
                 </Toolbar>
             </AppBar>
-
             <div className={classes.toolbarMargin}/>
 
         </>
