@@ -136,7 +136,7 @@ export default function Header(props) {
     );
     return (
         <>
-            <AppBar position='fixed' color='primary' style={{  left: '50%'}}>
+            <AppBar position='sticky' >
                 <Toolbar disableGutters>
                     {/*<Typography variant='h5' color='secondary'> Ceva development </Typography>*/}
 

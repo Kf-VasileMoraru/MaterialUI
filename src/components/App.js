@@ -29,10 +29,7 @@ function App() {
                 </Switch>
                 <Footer value={value} setValue={setValue}/>
             </BrowserRouter>
-
         </ThemeProvider>
-
-
     );
 }
 
