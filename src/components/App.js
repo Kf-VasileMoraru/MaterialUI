@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React from 'react';
 import ChildComponent from './childcomponent';
 import {ThemePovider} from './ThemeProvider';
 
@@ -8,7 +8,7 @@ export default function App() {
 
     return (
         <ThemePovider>
-            <ChildComponent />
+            <ChildComponent/>
         </ThemePovider>
     );
 }

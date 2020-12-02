@@ -1,11 +1,11 @@
 import React, {useContext} from 'react';
-import {ThemeContext, ThemeUpdateContext, useTheme, useThemeUpdate} from './ThemeProvider';
+import {ThemeContext, ThemeUpdateContext} from './ThemeProvider';
 
 
 function GrandChildComponent() {
     // eslint-disable-next-line no-undef
-    const  theme  = useContext(ThemeContext);
-    const  changeTheme  = useContext(ThemeUpdateContext);
+    const theme = useContext(ThemeContext);
+    const changeTheme = useContext(ThemeUpdateContext);
 
     return (
         <>
@@ -19,6 +19,7 @@ function GrandChildComponent() {
 
 
 function ChildComponent() {
-    return <GrandChildComponent />;
+    return <GrandChildComponent/>;
 }
-export default  ChildComponent;
+
+export default ChildComponent;
