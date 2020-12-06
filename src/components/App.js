@@ -1,16 +1,42 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import Select from 'react-select';
+import { useForm, Controller } from 'react-hook-form';
+import MaterialUIInput from '@material-ui/core/Input';
+import { Input as AntdInput } from 'antd';
 
-export default function App() {
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+const App = () => {
+    const { control, handleSubmit } = useForm();
+
+    const onSubmit = data => {
+        console.log(data);
+    };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <input name="firstName" ref={register({ required: true, maxLength: 20 })} />
-            <input name="lastName" ref={register({ pattern: /^[A-Za-z]+$/i })} />
-            <input name="age" type="number" ref={register({ min: 18, max: 99 })} />
+            <Controller
+                as={MaterialUIInput}
+                name="firstName"
+                control={control}
+                defaultValue=""
+            />
+            <Controller
+                as={AntdInput}
+                name="lastName"
+                control={control}
+                defaultValue=""
+            />
+            <Controller
+                name="iceCreamType"
+                as={Select}
+                options={[
+                    { value: 'chocolate', label: 'Chocolate' },
+                    { value: 'strawberry', label: 'Strawberry' },
+                    { value: 'vanilla', label: 'Vanilla' }
+                ]}
+                control={control}
+                rules={{ required: true }}
+            />
             <input type="submit" />
         </form>
     );
-}
+};
