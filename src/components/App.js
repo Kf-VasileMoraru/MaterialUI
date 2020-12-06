@@ -1,11 +1,11 @@
 import React from 'react';
 import Select from 'react-select';
-import { useForm, Controller } from 'react-hook-form';
+import {Controller, useForm} from 'react-hook-form';
 import MaterialUIInput from '@material-ui/core/Input';
-import { Input as AntdInput } from 'antd';
+import {Input as AntdInput} from 'antd';
 
 const App = () => {
-    const { control, handleSubmit } = useForm();
+    const {control, handleSubmit} = useForm();
 
     const onSubmit = data => {
         console.log(data);
@@ -29,14 +29,18 @@ const App = () => {
                 name="iceCreamType"
                 as={Select}
                 options={[
-                    { value: 'chocolate', label: 'Chocolate' },
-                    { value: 'strawberry', label: 'Strawberry' },
-                    { value: 'vanilla', label: 'Vanilla' }
+                    {value: 'chocolate', label: 'Chocolate'},
+                    {value: 'strawberry', label: 'Strawberry'},
+                    {value: 'vanilla', label: 'Vanilla'}
                 ]}
                 control={control}
-                rules={{ required: true }}
+                rules={{required: true}}
             />
-            <input type="submit" />
+            <input type="submit"/>
         </form>
     );
+};
+
+export default {
+    App
 };
